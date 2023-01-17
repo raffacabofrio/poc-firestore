@@ -5,26 +5,33 @@ https://firebase.google.com/docs/firestore/quickstart
 
 # GCP - como criar o arquivo de credenciais?
 
-GCP >> IAM >> contas de serviço 
+Numa primeira tentativa fui pelo GCP e deu muita dor de cabeça. Desisti. 😰
 
-1 - criar uma conta de serviço.
-2 - entrar na conta, e criar uma chave pra ela.
+Depois fui pelo firebase console, e foi bem suave. Inclusive fez automaticamente todas as configurações necessárias no GCP.
 
-GCP >> firestore >> regras de segurança
+1 - criar um projeto no firebase.
+    https://console.firebase.google.com/
 
-1 - ativar o firebase
-2 - ir para o console do firebase >> https://console.firebase.google.com/u/0/project/firestore-poc-374622/firestore/rules
-
-3 - colocar essa permissão
+2 - colocar essa permissão
 allow read, write: if request.auth != null;
 
+3 - obter as credenciais de acesso
+ - https://console.cloud.google.com/
+ - GCP >> IAM >> contas de serviço
+ - entrar na conta, e faça o download da chave dela.
+ - salve em "poc-firestore\src\main\resources\firestore-credential.json"
 
 
 ---------------------------------------------------------
 # rodar pelo console
+~~~
 ./gradlew bootRun 
-
+~~~
 
 ---------------------------------------------------------
+# firestore vs firebase
 
+- firestore é o banco nosql.
+
+- firebase é o framework que devs mobile amam. usa o firestore como banco.
 
